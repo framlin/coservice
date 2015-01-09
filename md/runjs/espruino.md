@@ -1,23 +1,29 @@
 <div class="content">
 <nav id="breadcrumb"><ul><li><a href="/">home</a></li></ul></nav>
-$§&ah$%&
+
+$=START_ARTICLE
 #Espruino
 
 running JavaScript as a native firmware
-$%/$§/h$§&sh$%&
+$=FIRST_SECTION
 #What it is
 
 Espruino is a board and a JavaScript-interpreter, that acts as firmware.
-$%/$§/hs$§&sh$%&
+$=START_SECTION_BODY
+
+$=NEXT_SECTION
 #Espruio as a Board
-$%/$§/h$%&
+$=START_SECTION_BODY
+
 There is a company, that designs and produce little break-boards that have an .....XYZ.....-processor 
 with the Espruino-Runtime preinstalled.
 
-This board has two buttons and tre LEDs on it, to mak it possible to play a bit with it.
-$%/$§/s$§&sh$%&
+This board has two buttons and thre LEDs on it, to mak it possible to play a bit with it.
+
+$=NEXT_SECTION
 #Espruino as a JavaScript-Interpreter
-$%/$§/h$%&
+$=START_SECTION_BODY
+
 This interpreter knows a subset of JavaScript and is designed to work with a very tiny amount of memory.
-$%/$§/s$§/a
+$=STOP_ARTICLE
 </div> <!-- /content -->
