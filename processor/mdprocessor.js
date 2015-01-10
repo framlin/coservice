@@ -18,6 +18,7 @@ function processFile(path) {
 //var html = markdown.toHTML(md);
 
     const
+        SEP = '+',
         MD_START_TOKEN = '$%&',
         MD_STOP_TOKEN = '$%/',
         FMD_TOKEN = '$§',
@@ -59,7 +60,7 @@ function processFile(path) {
 
     }
 
-    function prcCommand(cmd) {
+    function prcCommand(cmd, tagAttributes) {
         const START = '&',
             STOP = '/',
             COMMENT = '!',
@@ -72,6 +73,7 @@ function processFile(path) {
             command = cmd[1],
             comment = '',
             tagOpener = '<',
+            tagCloser ='>',
             tags,
             tag,
             htmlTag,
@@ -90,15 +92,20 @@ function processFile(path) {
                 tags = cmd.substring(2);
                 if (command == STOP) {
                     tagOpener += '/';
+                } else if (command == START) {
+                    tagCloser = ' '+tagAttributes + tagCloser;
                 }
                 for (i = 0; i < tags.length; i += 1) {
                     tag = tags[i];
                     switch(tag) {
                         case 'a':
-                            htmlTag = tagOpener + "article>";
+                            htmlTag = tagOpener + "article"+tagCloser;
                             break;
                         case 's':
-                            htmlTag = tagOpener + "section>";
+                            htmlTag = tagOpener + "section"+tagCloser;
+                            break;
+                        case 'd':
+                            htmlTag = tagOpener + "div"+tagCloser;
                             break;
                         case 'h':
                             htmlTag = tagOpener + "header>";
@@ -128,10 +135,22 @@ function processFile(path) {
 
         var cmds = [],
             c,
-            cmd;
+            cmd,
+            macro,
+            sepIndex = line.indexOf(SEP),
+            tagAttributes = '',
+            token;
 
+        if (sepIndex > 0) {
+            token = line.split(SEP);
+            macro = token[0];
+            tagAttributes = token[1];
+            var a = 1;
+        } else {
+            macro = line;
+        }
 
-        cmds = line.split('$');
+        cmds = macro.split('$');
 
         if (isMDActive()) {
             stopMD();
@@ -139,33 +158,51 @@ function processFile(path) {
 
         for (c = 1; c < cmds.length; c += 1) {
             cmd = cmds[c];
-            prcCommand(cmd);
+            prcCommand(cmd, tagAttributes);
         }
 
 
     }
 
     function prcMacro(line) {
+        var macro,
+            sepIndex = line.indexOf(SEP),
+            tagAttributes = '',
+            token;
 
-        switch(line) {
+
+        if (sepIndex > 0) {
+            token = line.split(SEP);
+            macro = token[0];
+            tagAttributes = SEP + token[1];
+        } else {
+            macro = line;
+        }
+        switch(macro) {
             case '$=START_SECTION_BODY':
-                line = '$§/h$%&$!stopSectionHeader';
+                macro = '$§/h$%&$!startSectionBody'+tagAttributes;
                 break;
             case '$=START_ARTICLE':
-                line = '$§&ah$%&$!startArticle';
+                macro = '$§&ah$%&$!startArticle'+tagAttributes;
                 break;
             case '$=FIRST_SECTION':
-                line = '$§/h$§&sh$%&!firstSection';
+                macro = '$§/h$§&sh$%&!firstSection'+tagAttributes;
                 break;
             case '$=NEXT_SECTION':
-                line = '$§/s$§&sh$%&!nextSection';
+                macro = '$§/s$§&sh$%&!nextSection'+tagAttributes;
+                break;
+            case '$=DIV':
+                macro = '$§&d$%&'+tagAttributes;
+                break;
+            case '$=/DIV':
+                macro = '$§/d$%&';
                 break;
             case '$=STOP_ARTICLE':
-                line = '$§/sa';//NO COMMENT: doesnt work here!
+                macro = '$§/sa';//NO COMMENT: doesnt work here!
                 break;
         }
 
-        prcFMD(line);
+        prcFMD(macro);
     }
 
 
