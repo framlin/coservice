@@ -13,9 +13,10 @@ $=START_SECTION_BODY
 
 $=NEXT_SECTION
 #Espruio as a Board
+a tiny board runing with the Espruino-Runtime preinstalled.
 $=START_SECTION_BODY
 
-There is a company, that designs and produces little break-boards that have an .....XYZ.....-processor 
+There is a company, that designs and produces little breakout-boards that have an .....XYZ.....-processor 
 with the Espruino-Runtime preinstalled.
 
 This board has two buttons and three LEDs on it, to mak it possible, to play a bit with it.

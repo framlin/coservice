@@ -2,10 +2,10 @@
 <nav id="breadcrumb"><ul><li>@home</li></ul></nav>
 
 $=START_ARTICLE
-#Servus
+#Welcome
 this site is all about embedded JavaScript
 
-$=FIRST_SECTION
+$=FIRST_SECTION+class=""
 #JavaScript
 $=START_SECTION_BODY
 Some general words [about JavaScript](/co/runjs/article/javascript)
