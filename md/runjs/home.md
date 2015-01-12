@@ -5,7 +5,7 @@ $=START_ARTICLE
 #Welcome
 this site is all about embedded JavaScript
 
-$=FIRST_SECTION+class=""
+$=FIRST_SECTION
 #JavaScript
 $=START_SECTION_BODY
 Some general words [about JavaScript](/co/runjs/article/javascript)
