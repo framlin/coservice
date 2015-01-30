@@ -19,6 +19,7 @@ function loadAll() {
         i,
         fileName,
         postfixPos,
+        postfix,
         site,
         article,
         result = {};
@@ -29,11 +30,15 @@ function loadAll() {
         site = dirs[dirs.length - 2];
         fileName = dirs[dirs.length - 1];
         postfixPos = fileName.lastIndexOf('.');
-        article = fileName.substring(0, postfixPos);
-        if (!result[site]) {
-            result[site] = {};
+        postfix = fileName.substring(postfixPos);
+
+        if (postfix === ARTICLE_POSTFIX) {
+            article = fileName.substring(0, postfixPos);
+            if (!result[site]) {
+                result[site] = {};
+            }
+            result[site][article] = fs.readFileSync(path, {encoding: 'utf-8'});
         }
-        result[site][article] = fs.readFileSync(path, {encoding: 'utf-8'});
 
     }
     return result;

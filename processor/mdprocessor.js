@@ -1,6 +1,12 @@
 var fs = require('fs'),
     walkSync = require('fr-fswalker').walkSync;
 
+/*
+var Showdown = require('showdown');
+var converter = new Showdown.converter();
+
+converter.makeHtml('#hello markdown!');
+*/
 
 
 function processFile(path) {
@@ -11,8 +17,13 @@ function processFile(path) {
         mdActive = false,
         lines = [],
         mdLines = [],
-        htmlLines = [],
-        markdown = require( 'markdown').markdown;
+        htmlLines = [];
+        //markdown = require( 'markdown').markdown;
+        //markdown = new require('showdown').converter();
+
+    var Showdown = require('showdown');
+    var markdown = new Showdown.converter();
+
 
 
 //var html = markdown.toHTML(md);
@@ -40,7 +51,8 @@ function processFile(path) {
 
     function processMD(mdLines) {
         var md = mdLines.join('\n'),
-            html = markdown.toHTML(md);
+            //html = markdown.toHTML(md);
+        html = markdown.makeHtml(md);
 
         htmlLines = htmlLines.concat(html.split('\n'));
     }
@@ -250,12 +262,23 @@ const MD_PATH = '/../md';
 
 var articleFileNames = walkSync(__dirname + MD_PATH),
     path,
-    htmlLines;
+    htmlLines,
+    dirs,
+    fileName,
+    postfixPos,
+    postfix;
 
 for (i = 0; i < articleFileNames.length; i += 1) {
     path = articleFileNames[i];
-    htmlLines = processFile(path);
-    writeHTMLFile(path, htmlLines);
+    dirs = path.split('/');
+    fileName = dirs[dirs.length - 1];
+    postfixPos = fileName.lastIndexOf('.');
+    postfix = fileName.substring(postfixPos);
+
+    if (postfix === '.md') {
+        htmlLines = processFile(path);
+        writeHTMLFile(path, htmlLines);
+    }
 }
 console.log('CMD DONE');
 

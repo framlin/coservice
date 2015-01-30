@@ -1,26 +1,240 @@
+<div id="sec-navigation"></div>
+<div id="section-context"></div>
+
 <div class="content">
-<nav id="breadcrumb"><ul><li>@home</li></ul></nav>
+<nav id="breadcrumb"><ul><li><a href="/" >home</a></li></ul></nav>
 
 <article >
 <header>
 <!-- startArticle-->
-<h1>JavaScript</h1>
 
-<ul><li>the most used language</li><li>language of the web</li><li>many books the last 5 years, so have a look, if you like ...</li><li>I have read some of them</li><li>Crockford is a &quot;klassiker&quot;</li><li>if useful or not depends on background and experience</li></ul>
 </header>
 <section >
 <header>
-<h1>History</h1>
+<h1 id="javascript">JavaScript</h1>
 </header>
 <!-- startSectionBody-->
-<ul><li>Brendon Eich [?] in 4 weeks </li><li>should look like Java and has to run in the browser (Netscape Navigator)</li><li>Brendon Eich was hired as a scheme developer</li><li>Javascript is a hybrid of functional and prototype-based language -&gt; object-functional</li></ul>
-<div class="further">
-<h3>Youtube</h3>
+<p>As far as I know, JavaScript is the most used language - not only - in the web. 10 years ago, prior to "Web 2.0" 
+and AJAX, leading to webapps, there was only a small number of books about JavaScript out here. <br />
+This has changed dramatically and there is nothing, I could write more or better than any of these authors. I am pretty sure, there is a book, 
+that fulfills your needs or your niche.</p>
 
-<ul><li>Brendon Eich</li><li>Crockford: JS The Good Parts</li></ul>
+<p>For those that don't like books and doesn't like, to go to far into deep, this is a brief overview about the language. </p>
+<div class=section-context>
+<h2 id="else">else</h2>
+
+<p><a href="/co/runjs/article/nodejs">runJS: NodeJS</a> <br />
+running JavaScript on the serverside</p>
+
+<p><a href="/co/runjs/article/espruino">runJS: Espruino</a> <br />
+running JavaScript as a native firmware</p>
 </div>
 
 </section>
+<section >
+<header>
+<h1 id="history">History</h1>
+</header>
+<!-- startSectionBody-->
+<p>20 Years ago, in 1995, Brendon Eich was hired by Netscape as a scheme developer and was instructed, to develop an 
+interpreted scripting-language, that should have a Java-like syntax and has to run embedded within Netscapes 
+WWW-Browser Navigator. <br />
+So he implemented JavaScript within 10 days in May 1995.</p>
+
+<p>He designed "Mocha" - as it was named at first - as  a multi-paradigm language, 
+that combines the object-oriented aspects expressed by self and the function model of scheme.</p>
+
+<p>Self is inspired by smalltalk. It replaces the classes and the inheritance of smalltalk with a 
+prototype-based object model. <br />
+Scheme is a combination of the actor-model with the functional programming language LISP.</p>
+
+<p>This paradigm-mixture combined with the event-loop, that was inspired by HyperCard/HyperTalk, 
+is - in my opinion - the reason for the success of the language.</p>
+<div class=section-context>
+<h2 id="sources">sources</h2>
+
+<p><a href="https://www.youtube.com/watch?v=IPxQ9kEaF8c">Computing Conversations with Brendan Eich</a> <br />
+Brendan Eich, telling about the invention of JavaScript</p>
+
+<p><a href="https://www.youtube.com/watch?v=JxAXlJEmNMg">Crockford on JavaScript - Volume 1: The Early Years</a> <br />
+Crockford about the history of JavaScript and programming(-languages) at all.</p>
+
+<h2 id="else">else</h2>
+
+<p><a href="/co/runjs/article/nodejs">runJS: NodeJS</a> <br />
+running JavaScript on the serverside</p>
+
+<p><a href="/co/runjs/article/espruino">runJS: Espruino</a> <br />
+running JavaScript as a native firmware</p>
+</div>
+
+</section>
+<section >
+<header>
+<h1 id="basicbuildingblocks">basic building blocks</h1>
+</header>
+<!-- startSectionBody-->
+<p>JavaScript is a C-style-language. So it has common condition- and flow-structures, like for-loops, 
+if-statements and so on, in a C-like-syntax. This is taken over from Java and it's dangerous, 
+because not everything, that looks like a duck, behaves like a duck, as one can see looking at the 
+keyword "this" or the scoping..  </p>
+
+<p>JavaScript is a loosely typed language, that means, it has types, but they are dynamic. 
+There are primitives, objects and functions, where functions are actual objects.
+That's all.</p>
+
+<p>The Primitives are: Number, Boolean, String, null and undefined.
+They all - except null and undefined - have equivalent object-wrappers as builtin objects.</p>
+<div class=section-context>
+<h2 id="sources">sources</h2>
+
+<p><a href="https://www.youtube.com/watch?v=RO1Wnu-xKoY">Crockford on JavaScript - Chapter 2: And Then There Was JavaScript</a> <br />
+Crockford about the basics of javaScript</p>
+
+<h2 id="else">else</h2>
+
+<p><a href="/co/runjs/article/nodejs">runJS: NodeJS</a> <br />
+running JavaScript on the serverside</p>
+
+<p><a href="/co/runjs/article/espruino">runJS: Espruino</a> <br />
+running JavaScript as a native firmware</p>
+</div>
+
+</section>
+<section >
+<header>
+<h1 id="objects">Objects</h1>
+</header>
+<!-- startSectionBody-->
+<p>Besides the primitives, objects are the only "things" JavaScript knows about. <br />
+Objects are collections of <strong>properties</strong>, representing virtues, using fields, 
+that hold primitives or references to <strong>objects</strong>, and behaviour, using fields, that hold references to <strong>functions</strong>.</p>
+
+<p>Classes as e.g. used by Java, are descriptions, how objects are structured and how they behave. 
+Such a description serves as a blueprint, to create and instantiate objects. <br />
+To make classes reusable, it is possible to declare, that a class is derived from another and that it is inheriting
+the virtue and behavior from the parent-class. </p>
+
+<p>JavaScript does <em>not</em> have such a class-concept. JavaScript has only "living" objects. You can create an object 
+and change its properties dynamically at runtime. To target reusability, JavaScript relies 
+on <strong>delegation</strong>, instead of inheritance. There are several ways, how to deal with this in detail. 
+They use the dynamic nature of objects and/or the <strong>prototype</strong>-property, to reach  it. </p>
+
+<p>In combination with <strong>closures</strong>, it is possible, to express all the concepts 
+(like modularisation, information hiding, reusability ....), that are known from OO-languages like Java, and more.</p>
+
+<p>As mentioned above, all primitives have builtin-wrapper-objects as counterpart in the object-world. <br />
+So there are String, Number and Boolean. In addition to them, there are some "Utility-Objects", such as Math, 
+Date and RegExp.</p>
+<div class=section-context>
+<h2 id="sources">sources</h2>
+
+<p><a href="https://www.youtube.com/watch?v=RO1Wnu-xKoY">Crockford on JavaScript - Chapter 2: And Then There Was JavaScript</a> <br />
+Crockford about the basics of javaScript</p>
+
+<h2 id="else">else</h2>
+
+<p><a href="/co/runjs/article/nodejs">runJS: NodeJS</a> <br />
+running JavaScript on the serverside</p>
+
+<p><a href="/co/runjs/article/espruino">runJS: Espruino</a> <br />
+running JavaScript as a native firmware</p>
+</div>
+
+</section>
+<section >
+<header>
+<h1 id="functions">Functions</h1>
+</header>
+<!-- startSectionBody-->
+<p>Functions in JavaScript are different, if one is used to the C-style function concept.
+On the one hand, JavaScript-functions look and behave like "normal" functions.</p>
+
+<pre>
+function foo(bla) {
+    return bla;
+}
+var blubb = foo(42); //blubb == 42
+</pre>
+
+<p>But on the other hand, they look and behave like normal objects - because they are normal objects</p>
+
+<pre>
+function Thing(value) {
+    this.kind = value;
+}
+var entity = new Thing(42); //entity.kind == 42
+</pre>
+
+<p>This is, why I like to call JavaScript an 'object-functional' language. </p>
+
+<h2 id="scopes">scopes</h2>
+
+<ul>
+<li>no blockscope, but function scope</li>
+</ul>
+
+<h2 id="this">this</h2>
+
+<ul>
+<li>"this" is not allways, where it <em>belongs to</em>, it deponds on how a function is called
+<ul><li>for new "this" is a new created object </li>
+<li>for function call "this" is global object</li>
+<li>for method call "this" is the object, the method belongs to</li></ul></li>
+</ul>
+
+<h2 id="closure">closure</h2>
+
+<ul>
+<li>lexical (or static) scoping</li>
+<li>most important feature of JavaScript</li>
+<li>module pattern</li>
+</ul>
+<div class=section-context>
+<h2 id="sources">sources</h2>
+
+<p><a href="https://www.youtube.com/watch?v=ya4UHuXNygM">Crockford on JavaScript - Act III: Function the Ultimate</a> <br />
+Crockford about functions, constructrs, closures and related coding styles</p>
+
+<h2 id="else">else</h2>
+
+<p><a href="/co/runjs/article/nodejs">runJS: NodeJS</a> <br />
+running JavaScript on the serverside</p>
+
+<p><a href="/co/runjs/article/espruino">runJS: Espruino</a> <br />
+running JavaScript as a native firmware</p>
+</div>
+
+</section>
+<section >
+<header>
+<h1 id="es6thefuture">ES6, the future</h1>
+</header>
+<!-- startSectionBody-->
+
+<div class=section-context>
+<h2 id="else">else</h2>
+
+<p><a href="/co/runjs/article/nodejs">runJS: NodeJS</a> <br />
+running JavaScript on the serverside</p>
+
+<p><a href="/co/runjs/article/espruino">runJS: Espruino</a> <br />
+running JavaScript as a native firmware</p>
+</div>
+
+</section>
+<section >
+<header>
+<h1 id="further">further</h1>
+</header>
+<!-- startSectionBody-->
+<p><a href="/co/runjs/article/nodejs">runJS: NodeJS</a> <br />
+running JavaScript on the serverside</p>
+
+<p><a href="/co/runjs/article/espruino">runJS: Espruino</a> <br />
+running JavaScript as a native firmware</p>
+</section>
 </article>
 
+<!-- div class="clearit"/ -->
 </div> <!-- /content -->
