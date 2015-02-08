@@ -95,8 +95,8 @@ $=NEXT_SECTION
 $=START_SECTION_BODY
 
 Besides the primitives, objects are the only "things" JavaScript knows about.    
-Objects are collections of **properties**, representing virtues, using fields, 
-that hold primitives or references to **objects**, and behaviour, using fields, that hold references to **functions**.
+Objects are collections of **properties**, representing virtues by referencing **objects**, 
+and behaviour while pointing to **functions**.
 
 Classes as e.g. used by Java, are descriptions, how objects are structured and how they behave. 
 Such a description serves as a blueprint, to create and instantiate objects.     
@@ -110,10 +110,6 @@ They use the dynamic nature of objects and/or the **prototype**-property, to rea
 
 In combination with **closures**, it is possible, to express all the concepts 
 (like modularisation, information hiding, reusability ....), that are known from OO-languages like Java, and more.
-
-As mentioned above, all primitives have builtin-wrapper-objects as counterpart in the object-world.     
-So there are String, Number and Boolean. In addition to them, there are some "Utility-Objects", such as Math, 
-Date and RegExp.
 
 $=DIV+class=section-context
 ##sources
@@ -154,23 +150,34 @@ var entity = new Thing(42); //entity.kind == 42
 
 This is, why I like to call JavaScript an 'object-functional' language. 
 
-##scopes
-- no blockscope, but function scope
 ##this
-- "this" is not allways, where it _belongs to_, it deponds on how a function is called
-	- for new "this" is a new created object 
-	- for function call "this" is global object
-	- for method call "this" is the object, the method belongs to
-##closure
-- lexical (or static) scoping
-- most important feature of JavaScript
-- module pattern
+"this" is the next different point. It refers not always to the object, a function _belongs to_, 
+but depends on how a function is called. 
+
+* for new "this" is a new created object 
+* for function call "this" is global object
+* for method call "this" is the object, the method belongs to
+
+This makes JavaScript very flexible, but can be great in causing confusion, too.
+
+##closures
+The most important feature of JavaScript are closures. Closures are a kind of lexical (or static) scopes.
+They enable functions, to give their static environment a private piggyback ride. 
+This is a very useful feature particularly for callbacks, a central element within the *event-driven* runtime-concept.  
+Closures are used to realize the module pattern, too.
 
 $=DIV+class=section-context
 ##sources
 [Crockford on JavaScript - Act III: Function the Ultimate](https://www.youtube.com/watch?v=ya4UHuXNygM)     
-Crockford about functions, constructrs, closures and related coding styles
+Crockford about functions, constructors, closures and related coding styles
+##further
+[Speaking JavaScript: An In-Depth Guide for Programmers](http://speakingjs.com/)     
+Dr. Axel Rauschmayer
 
+[nodeschool: Functional Javascript](https://github.com/timoxley/functional-javascript-workshop)     
+Learn fundamental functional programming features of JavaScript in vanilla ES5.
+
+* Functional Programming by Martin Fowler (Youtube/Twitter 31.1.2015)
 ##else
 [runJS: NodeJS](/co/runjs/article/nodejs)   
 running JavaScript on the serverside
@@ -194,16 +201,6 @@ running JavaScript on the serverside
 running JavaScript as a native firmware
 
 $=/DIV
-
-$=NEXT_SECTION
-#further
-$=START_SECTION_BODY
-
-[runJS: NodeJS](/co/runjs/article/nodejs)   
-running JavaScript on the serverside
-
-[runJS: Espruino](/co/runjs/article/espruino)    
-running JavaScript as a native firmware
 
 $=STOP_ARTICLE
 

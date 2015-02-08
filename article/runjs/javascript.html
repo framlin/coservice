@@ -107,8 +107,8 @@ running JavaScript as a native firmware</p>
 </header>
 <!-- startSectionBody-->
 <p>Besides the primitives, objects are the only "things" JavaScript knows about. <br />
-Objects are collections of <strong>properties</strong>, representing virtues, using fields, 
-that hold primitives or references to <strong>objects</strong>, and behaviour, using fields, that hold references to <strong>functions</strong>.</p>
+Objects are collections of <strong>properties</strong>, representing virtues by referencing <strong>objects</strong>, 
+and behaviour while pointing to <strong>functions</strong>.</p>
 
 <p>Classes as e.g. used by Java, are descriptions, how objects are structured and how they behave. 
 Such a description serves as a blueprint, to create and instantiate objects. <br />
@@ -122,10 +122,6 @@ They use the dynamic nature of objects and/or the <strong>prototype</strong>-pro
 
 <p>In combination with <strong>closures</strong>, it is possible, to express all the concepts 
 (like modularisation, information hiding, reusability ....), that are known from OO-languages like Java, and more.</p>
-
-<p>As mentioned above, all primitives have builtin-wrapper-objects as counterpart in the object-world. <br />
-So there are String, Number and Boolean. In addition to them, there are some "Utility-Objects", such as Math, 
-Date and RegExp.</p>
 <div class=section-context>
 <h2 id="sources">sources</h2>
 
@@ -168,33 +164,42 @@ var entity = new Thing(42); //entity.kind == 42
 
 <p>This is, why I like to call JavaScript an 'object-functional' language. </p>
 
-<h2 id="scopes">scopes</h2>
-
-<ul>
-<li>no blockscope, but function scope</li>
-</ul>
-
 <h2 id="this">this</h2>
 
+<p>"this" is the next different point. It refers not always to the object, a function <em>belongs to</em>, 
+but depends on how a function is called. </p>
+
 <ul>
-<li>"this" is not allways, where it <em>belongs to</em>, it deponds on how a function is called
-<ul><li>for new "this" is a new created object </li>
+<li>for new "this" is a new created object </li>
 <li>for function call "this" is global object</li>
-<li>for method call "this" is the object, the method belongs to</li></ul></li>
+<li>for method call "this" is the object, the method belongs to</li>
 </ul>
 
-<h2 id="closure">closure</h2>
+<p>This makes JavaScript very flexible, but can be great in causing confusion, too.</p>
 
-<ul>
-<li>lexical (or static) scoping</li>
-<li>most important feature of JavaScript</li>
-<li>module pattern</li>
-</ul>
+<h2 id="closures">closures</h2>
+
+<p>The most important feature of JavaScript are closures. Closures are a kind of lexical (or static) scopes.
+They enable functions, to give their static environment a private piggyback ride. 
+This is a very useful feature particularly for callbacks, a central element within the <em>event-driven</em> runtime-concept. <br />
+Closures are used to realize the module pattern, too.</p>
 <div class=section-context>
 <h2 id="sources">sources</h2>
 
 <p><a href="https://www.youtube.com/watch?v=ya4UHuXNygM">Crockford on JavaScript - Act III: Function the Ultimate</a> <br />
-Crockford about functions, constructrs, closures and related coding styles</p>
+Crockford about functions, constructors, closures and related coding styles</p>
+
+<h2 id="further">further</h2>
+
+<p><a href="http://speakingjs.com/">Speaking JavaScript: An In-Depth Guide for Programmers</a> <br />
+Dr. Axel Rauschmayer</p>
+
+<p><a href="https://github.com/timoxley/functional-javascript-workshop">nodeschool: Functional Javascript</a> <br />
+Learn fundamental functional programming features of JavaScript in vanilla ES5.</p>
+
+<ul>
+<li>Functional Programming by Martin Fowler (Youtube/Twitter 31.1.2015)</li>
+</ul>
 
 <h2 id="else">else</h2>
 
@@ -222,17 +227,6 @@ running JavaScript on the serverside</p>
 running JavaScript as a native firmware</p>
 </div>
 
-</section>
-<section >
-<header>
-<h1 id="further">further</h1>
-</header>
-<!-- startSectionBody-->
-<p><a href="/co/runjs/article/nodejs">runJS: NodeJS</a> <br />
-running JavaScript on the serverside</p>
-
-<p><a href="/co/runjs/article/espruino">runJS: Espruino</a> <br />
-running JavaScript as a native firmware</p>
 </section>
 </article>
 
