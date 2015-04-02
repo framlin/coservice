@@ -1,3 +1,6 @@
+<div id="sec-navigation"></div>
+<div id="section-context"></div>
+
 <div class="content">
 <nav id="breadcrumb"><ul><li><a href="/">home</a></li></ul></nav>
 
@@ -14,6 +17,14 @@ $=NEXT_SECTION
 #NodeJS on the Web
 that's what it was intended for
 $=START_SECTION_BODY
+
+$=DIV+class=section-context
+##else
+
+[Authentication for Node.js with passport.js](/co/cryptojs/article/nodejs-passport)    
+Passport.js: "Simple, unobtrusive authentication for Node.js"
+
+$=/DIV
 
 $=NEXT_SECTION
 #NodeJS on SingleBoardComputers

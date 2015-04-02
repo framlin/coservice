@@ -9,11 +9,11 @@ $=FIRST_SECTION
 #JavaScript
 $=START_SECTION_BODY
 As far as I know, JavaScript is the most used language - not only - in the web. 10 years ago, prior to "Web 2.0" 
-and AJAX, leading to webapps, there was only a small number of books about JavaScript out here.     
+and AJAX, that lead us to webapps, there was only a small number of books about JavaScript out here.     
 This has changed dramatically and there is nothing, I could write more or better than any of these authors. I am pretty sure, there is a book, 
 that fulfills your needs or your niche.
 
-For those that don't like books and doesn't like, to go to far into deep, this is a brief overview about the language. 
+For those, that don't like books or don't want, to go to far into deep, this is a brief overview about the language. 
 
 $=DIV+class=section-context
 ##else
@@ -28,19 +28,19 @@ $=/DIV
 $=NEXT_SECTION
 #History
 $=START_SECTION_BODY
-20 Years ago, in 1995, Brendon Eich was hired by Netscape as a scheme developer and was instructed, to develop an 
+20 Years ago, in 1995, Brendon Eich was hired by Netscape as a _scheme_ developer and was instructed, to develop an 
 interpreted scripting-language, that should have a Java-like syntax and has to run embedded within Netscapes 
 WWW-Browser Navigator.    
 So he implemented JavaScript within 10 days in May 1995.
 
 He designed "Mocha" - as it was named at first - as  a multi-paradigm language, 
-that combines the object-oriented aspects expressed by self and the function model of scheme.
+that combines the object-oriented aspects, expressed by _self_ and the functional model of _scheme_.
 
-Self is inspired by smalltalk. It replaces the classes and the inheritance of smalltalk with a 
+_Self_ is inspired by _smalltalk_. It replaces the classes and the inheritance of _smalltalk_ with a 
 prototype-based object model.   
-Scheme is a combination of the actor-model with the functional programming language LISP.
+_Scheme_ is a combination of the actor-model with the functional programming language _LISP_.
 
-This paradigm-mixture combined with the event-loop, that was inspired by HyperCard/HyperTalk, 
+This paradigm-mixture, combined with the event-loop, that was inspired by _HyperCard/HyperTalk_, 
 is - in my opinion - the reason for the success of the language.
 
 $=DIV+class=section-context
@@ -94,13 +94,13 @@ $=NEXT_SECTION
 #Objects
 $=START_SECTION_BODY
 
-Besides the primitives, objects are the only "things" JavaScript knows about.    
-Objects are collections of **properties**, representing virtues by referencing **objects**, 
-and behaviour while pointing to **functions**.
+Besides the primitives, _objects_ are the only "things" JavaScript knows about.    
+Objects are collections of **properties**, representing virtues by referencing other **objects**, 
+and behaviour by pointing to **functions**.
 
 Classes as e.g. used by Java, are descriptions, how objects are structured and how they behave. 
 Such a description serves as a blueprint, to create and instantiate objects.     
-To make classes reusable, it is possible to declare, that a class is derived from another and that it is inheriting
+To make classes reusable, it is possible to declare, that one class is derived from another and that it is inheriting
 the virtue and behavior from the parent-class. 
 
 JavaScript does *not* have such a class-concept. JavaScript has only "living" objects. You can create an object 
@@ -129,7 +129,7 @@ $=NEXT_SECTION
 #Functions
 $=START_SECTION_BODY
 
-Functions in JavaScript are different, if one is used to the C-style function concept.
+Functions in JavaScript are different, if you are used to the C-style function concept.
 On the one hand, JavaScript-functions look and behave like "normal" functions.
 
 <pre>
@@ -139,7 +139,7 @@ function foo(bla) {
 var blubb = foo(42); //blubb == 42
 </pre>
 
-But on the other hand, they look and behave like normal objects - because they are normal objects
+But on the other hand, they look and behave like normal objects - because they **are** normal objects
 
 <pre>
 function Thing(value) {
@@ -204,5 +204,4 @@ $=/DIV
 
 $=STOP_ARTICLE
 
-<!-- div class="clearit"/ -->
 </div> <!-- /content -->

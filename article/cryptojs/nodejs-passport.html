@@ -1,0 +1,153 @@
+<div id="sec-navigation"></div>
+<div id="section-context"></div>
+
+<div class="content">
+<nav id="breadcrumb"><ul><li><a href="/" >home</a></li></ul></nav>
+
+<article >
+<header>
+<!-- startArticle-->
+
+</header>
+<section >
+<header>
+<h1 id="authenticationwithpassport">Authentication with Passport</h1>
+</header>
+<!-- startSectionBody-->
+<blockquote>
+  <p>"Passport is authentication middleware for Node.js. 
+  Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based web application. 
+  A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more."
+  (www.passportjs.org)</p>
+</blockquote>
+
+<p>First to say, there is no need to use express. As I'am a flatiron-user, I figured out, that there is a 
+<a href="https://www.npmjs.com/package/flatiron-passport">passport-module for flatiron</a>, too.</p>
+<div class=section-context>
+<h2 id="packages">packages</h2>
+
+<ul>
+<li><a href="https://github.com/mozilla/node-client-sessions">node-client-sessions</a> <br />
+<em>"secure sessions stored in cookies "</em></li>
+<li><a href="https://github.com/expressjs/csurf">expressjs/csurf</a> <br />
+<em>"CSRF token middleware "</em></li>
+</ul>
+
+<p><a href="https://www.npmjs.com/package/passport">passport-module for express</a> <br />
+<em>"assport is Express-compatible authentication middleware for Node.js."</em></p>
+
+<p><a href="https://www.npmjs.com/package/flatiron-passport">passport-module for flatiron</a> <br />
+<em>"Passport.js integration for FlatIron web framework. <br />
+This package allows Flatiron.js applications to easily use the Passport.js authentication framework."</em></p>
+
+<h2 id="resources">resources</h2>
+
+<p><a href="http://passportjs.org/guide">Passport Guide</a> <br />
+Official user-guide</p>
+
+<p><a href="http://code.tutsplus.com/tutorials/authenticating-nodejs-applications-with-passport--cms-21619">Authenticating Node.js Applications With Passport</a> <br />
+<em>"... use a relatively new but very popular authentication middleware - Passport to take care of our authentication concerns ..."</em></p>
+
+<p><a href="https://www.youtube.com/watch?v=yvviEA1pOXw">Everything You Ever Wanted To Know About Authentication in Node.js</a></p>
+
+<h2 id="else">else</h2>
+
+<p><a href="/co/runjs/article/nodejs">runJS: NodeJS</a> <br />
+running JavaScript on the serverside</p>
+
+<p><a href="/co/runjs/article/espruino">runJS: Espruino</a> <br />
+running JavaScript as a native firmware</p>
+</div>
+
+</section>
+<section >
+<header>
+<h1 id="userdatabase">User Database</h1>
+</header>
+<!-- startSectionBody-->
+<p>For authentication with a so called 'local strategy' you need to store a user-profile - with at least username and pasword - on your server.
+One possible solution should be levelDB and therefor the npm-package <em>level</em>, that means <em>levelup</em> together with <em>leveldown</em>, 
+but my first try on using it sucked :-(</p>
+
+<p>Because I never used <em>levelup</em> before, I checked out <a href="https://github.com/rvagg/levelmeup">"Level Me Up Scotty!"</a> 
+on <a href="nodeschool.io">nodeschool.io</a>. <br />
+I had installed iojs 1.0.5 at that time and ended up reading install error messages concerning node-gyp and other crap like that. <br />
+However, some tests with nodejs 0.10.25 succeeded, so I decided to put iojs away, until they have fixed that and to
+go back to the "official" nodejs.</p>
+<div class=section-context>
+<h2 id="packages">packages</h2>
+
+<p><a href="https://www.npmjs.com/package/level">level</a> <br />
+<em>"This is a convenience package that bundles the current release of LevelUP and LevelDOWN and exposes LevelUP on its export."</em></p>
+
+<h2 id="further">further</h2>
+
+<p><a href="https://github.com/rvagg/levelmeup">nodeschool.io: levelmeup</a> <br />
+<em>"Level Me Up Scotty! An intro to Node.js databases via a set of self-guided workshops."</em></p>
+
+<h2 id="else">else</h2>
+
+<p><a href="/co/runjs/article/nodejs">runJS: NodeJS</a> <br />
+running JavaScript on the serverside</p>
+
+<p><a href="/co/runjs/article/espruino">runJS: Espruino</a> <br />
+running JavaScript as a native firmware</p>
+</div>
+
+</section>
+<section >
+<header>
+<h1 id="passwordencryption">Password encryption</h1>
+</header>
+<!-- startSectionBody-->
+<p>If we don't want to transport a password in plain text over the net we may compute a (md5) hash 
+from the password and use that for transport, authentication and storage.</p>
+
+<p>So one question is: Is this necessary or even a good idea and - if so - how can we compute a hash within the browser.</p>
+
+<p>The answer to the if-question is: "it depends". If there is a "man in the middle", 
+it might be easier to him, to use a detected password, if its not "uglyfied" as a hash, but if he knows, that this is the password-hash,
+that is stored and used, it should make no huge difference.</p>
+
+<p>To answer the how-question: there are a few libraries, that provide well-known crypto-algorithms, implemented in JavaScript.
+The most popular seems to be <a href="https://code.google.com/p/crypto-js/">crypto-js</a>.</p>
+
+<p>But if you really need transport-security, its best to use a end-to-end encryption like the built-in <em>secure socket layer</em> (SSL, https).</p>
+
+<p>Concerning the storage and the usage for authentication, maybe it is a good idea, to hash the password and
+use the hash, to make it harder to spoof your site, but its still a security hole.</p>
+
+<p>So, like I said, it depends. To achieve a normal "day by day" security, that makes it just harder for normal people, to read stuff, 
+they are not supposed to, it may be a good compromise, to send plain passwords over the net and store their hashes.</p>
+<div class=section-context>
+<h2 id="packages">packages</h2>
+
+<p><a href="http://nodejs.org/api/crypto.html">crypto</a> <br />
+built-in crypto package of nodejs</p>
+
+<p><a href="https://www.npmjs.com/package/bcrypt">bcrypt</a> <br />
+<em>"A bcrypt library for NodeJS."</em></p>
+
+<h2 id="libraries">libraries</h2>
+
+<p><a href="https://code.google.com/p/crypto-js/">crypto-js</a> <br />
+<em>"JavaScript implementations of standard and secure cryptographic algorithms"</em></p>
+
+<h2 id="resources">resources</h2>
+
+<p><a href="https://glynrob.com/javascript/client-side-hashing-and-encryption/">Client side hashing and encryption </a> <br />
+Javascript, Security by GlynRob • October 20, 2013</p>
+
+<h2 id="else">else</h2>
+
+<p><a href="/co/runjs/article/nodejs">runJS: NodeJS</a> <br />
+running JavaScript on the serverside</p>
+
+<p><a href="/co/runjs/article/espruino">runJS: Espruino</a> <br />
+running JavaScript as a native firmware</p>
+</div>
+
+</section>
+</article>
+
+</div> <!-- /content -->

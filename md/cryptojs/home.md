@@ -14,13 +14,6 @@ $=START_SECTION_BODY
 - [Javascript Cryptography Considered Harmful](http://www.matasano.com/articles/javascript-cryptography/)     
 A widly recognized article about crypto with JavaScript
 
-- [CCC-TV: (1/2) Cryptocat: The Social and Technical Challenges of Making Crypto Accessible to Everyone]
-(http://media.ccc.de/browse/conferences/sigint13/konferenz_mp6_og_-_2013-07-05_15:00_-_cryptocat_the_social_and_technical_challenges_of_making_crypto_accessible_to_everyone_-_nadim_kobeissi_-_5050.html)     
-Part one of a two-part discussion on a cryptocat security issue at the CCC - Sigint 2013
-
-- [CCC-TV: (2/2) Q&A with Nadim on CryptoCat](http://media.ccc.de/browse/conferences/sigint13/vortrag_mp6_og_-_2013-07-05_19:00_-_q_a_with_nadim_on_cryptocat_-_5089.html)     
-Part two of a two-part discussion on a cryptocat security issue at the CCC - Sigint 2013
-
 - [Martin Boßlet: Javascript Crypto. Ugly duckling with good reason?"](http://www.youtube.com/watch?v=NjMOSg5Pe44)     
 A plea for JS-crypto at JSConf EU 2013
 
@@ -45,6 +38,9 @@ An input by input description to create a cert, e.g. for your own https://site
 $=NEXT_SECTION
 #NodeJS
 $=START_SECTION_BODY
+- [Authentication for Node.js with passport.js](/co/cryptojs/article/nodejs-passport)    
+Passport.js: "Simple, unobtrusive authentication for Node.js"
+ 
 - [Node Security Project](https://nodesecurity.io/)     
 A Project About Node Security in Three Acts
 
