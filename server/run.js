@@ -19,8 +19,8 @@ function coImage(req, res, next) {
 // ----------- run ----------------------------
 var server = restify.createServer();
 
-server.use(restify.CORS( {credentials: true, headers: ['x-framlin-co']}));
-server.use(restify.fullResponse());
+// server.use(restify.CORS( {credentials: true, headers: ['x-framlin-co']}));
+// server.use(restify.fullResponse());
 
 server.get('/co/:site/article/:path', coArticle);
 server.get('/co/:site/audio/:path', coAudio);
