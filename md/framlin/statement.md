@@ -1,6 +1,5 @@
-<div class="content">
-<nav id="breadcrumb"><ul><li>@home</li></ul></nav>
-
+<div  class="overlay" >
+<div id="statement">
 <article><section><header>
 $%&
 #Willkommen
@@ -160,4 +159,5 @@ $%/
 
 $=STOP_ARTICLE
 
-</div> <!-- /content -->
+</div> <!-- /statement -->
+</div> <!-- /overlay -->
